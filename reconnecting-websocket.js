@@ -102,6 +102,13 @@
     }
 })(this, function () {
 
+    if (typeof window === 'undefined') {
+        return function () {
+            this.open = function() {};
+            this.close = function() {};
+        };
+    }
+
     if (!('WebSocket' in window)) {
         return;
     }
